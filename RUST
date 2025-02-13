@@ -1,0 +1,139 @@
+fn main() {
+    // 变量声明
+    // 不可变变量
+    let x = 5;
+    println!("The value of x is: {}", x);
+
+    // 可变变量
+    let mut y = 10;
+    y = 20;
+    println!("The value of y is: {}", y);
+
+    // 数据类型
+    // 整数类型
+    let num: i32 = 42;
+    println!("Integer: {}", num);
+
+    // 浮点类型
+    let float_num: f64 = 3.14;
+    println!("Float: {}", float_num);
+
+    // 布尔类型
+    let is_true: bool = true;
+    println!("Boolean: {}", is_true);
+
+    // 字符类型
+    let char_val: char = 'A';
+    println!("Character: {}", char_val);
+}
+fn main() {
+    // if 语句
+    let number = 5;
+    if number < 10 {
+        println!("The number is less than 10.");
+    } else {
+        println!("The number is greater than or equal to 10.");
+    }
+
+    // 循环
+    // for 循环
+    for i in 1..=5 {
+        println!("For loop iteration: {}", i);
+    }
+
+    // while 循环
+    let mut counter = 0;
+    while counter < 3 {
+        println!("While loop iteration: {}", counter);
+        counter += 1;
+    }
+
+    // loop 循环
+    let mut loop_counter = 0;
+    loop {
+        println!("Loop iteration: {}", loop_counter);
+        loop_counter += 1;
+        if loop_counter == 3 {
+            break;
+        }
+    }
+}
+// 定义函数
+fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+fn main() {
+    let result = add(3, 5);
+    println!("The result of addition is: {}", result);
+}
+// 定义结构体
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+// 为结构体实现方法
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+fn main() {
+    let rect = Rectangle {
+        width: 10,
+        height: 20,
+    };
+    println!("The area of the rectangle is: {}", rect.area());
+}
+// 定义枚举
+enum Color {
+    Red,
+    Green,
+    Blue,
+}
+
+fn print_color(color: Color) {
+    match color {
+        Color::Red => println!("The color is red."),
+        Color::Green => println!("The color is green."),
+        Color::Blue => println!("The color is blue."),
+    }
+}
+
+fn main() {
+    let my_color = Color::Green;
+    print_color(my_color);
+}
+// 定义模块
+mod my_module {
+    pub fn public_function() {
+        println!("This is a public function in the module.");
+    }
+
+    fn private_function() {
+        println!("This is a private function in the module.");
+    }
+}
+
+fn main() {
+    my_module::public_function();
+    // 下面这行代码会报错，因为 private_function 是私有的
+    // my_module::private_function();
+}
+fn divide(a: i32, b: i32) -> Result<i32, &'static str> {
+    if b == 0 {
+        Err("Division by zero is not allowed.")
+    } else {
+        Ok(a / b)
+    }
+}
+
+fn main() { 
+    let result = divide(10, 2);
+    match result {
+        Ok(value) => println!("The result of division is: {}", value),
+        Err(error) => println!("Error: {}", error),
+    }
+}
